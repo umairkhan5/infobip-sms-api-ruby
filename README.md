@@ -24,28 +24,34 @@ Run generator:
     
 Generator will create new file config/initializers/infobip_config.rb:
 
-    Infobip::SmsApi.configure do |config|
-    
-      # config.endpoint = 'https://api.infobip.com'
-    
-      config.username = '' # Infobip Account Username
-      config.password = '' # Infobip Account Password
-    
-      # config.debug = false # Log requests and responses
-    
-    end
+```ruby
+Infobip::SmsApi.configure do |config|
+
+  # config.endpoint = 'https://api.infobip.com'
+
+  config.username = '' # Infobip Account Username
+  config.password = '' # Infobip Account Password
+
+  # config.debug = false # Log requests and responses
+
+end
+```
 
 To successfully use this gem you need to have Infobip account, and you need to set your username and password.
 
 ## Usage
 
 ### Send single textual message
-    message = Infobip::SmsApi::Message.new(from: 'Sender', to: '381650000000', text: "Lorem ipsum...")
-    response = message.send_text
+```ruby
+message = Infobip::SmsApi::Message.new(from: 'Sender', to: '381650000000', text: "Lorem ipsum...")
+response = message.send_text
+```
 
 ### Send single textual message to multiple destinations
-    message = Infobip::SmsApi::Message.new(from: 'Sender', to: ['381650000000','381650000001'], text: "Lorem ipsum...")
-    response = message.send_text
+```ruby
+message = Infobip::SmsApi::Message.new(from: 'Sender', to: ['381650000000','381650000001'], text: "Lorem ipsum...")
+response = message.send_text
+```
 
 ## Development
 
