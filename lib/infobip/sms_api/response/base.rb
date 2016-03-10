@@ -31,7 +31,7 @@ module Infobip
         def failed_messages
           @messages.select { |message|
             !SUCCESSFUL_STATUSES.include?message.status.group_name
-          }
+          } if @messages
         end
 
         ##
@@ -39,7 +39,7 @@ module Infobip
         def sent_messages
           @messages.select { |message|
             SUCCESSFUL_STATUSES.include?message.status.group_name
-          }
+          } if @messages
         end
       end
     end
