@@ -1,6 +1,10 @@
 # infobip-sms-api-ruby
 
-Simple API wrapper for Infobip SMS Api
+Simple API wrapper for Infobip SMS Api (https://dev.infobip.com/)
+
+Notes: 
+**This is not offical infobip release**, it's a personal project started because there is no other solution ATM.
+
 
 ## Installation
 
@@ -41,13 +45,13 @@ To successfully use this gem you need to have Infobip account, and you need to s
 
 ## Usage
 
-### Send single textual message
+### Send single text message
 ```ruby
 message = Infobip::SmsApi::Message.new(from: 'Sender', to: '381650000000', text: "Lorem ipsum...")
 response = message.send_text
 ```
 
-### Send single textual message to multiple destinations
+### Send single text message to multiple destinations
 ```ruby
 message = Infobip::SmsApi::Message.new(from: 'Sender', to: ['381650000000','381650000001'], text: "Lorem ipsum...")
 response = message.send_text
