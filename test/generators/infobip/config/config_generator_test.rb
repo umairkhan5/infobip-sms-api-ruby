@@ -1,5 +1,6 @@
 require 'rails/generators/test_case'
 require 'generators/infobip/config/config_generator'
+
 module Infobip
   module Generators
     class ConfigGeneratorTest < Rails::Generators::TestCase

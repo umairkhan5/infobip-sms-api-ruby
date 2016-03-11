@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test:test@api.infobip.com/sms/1/binary/multi
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"from":"binary","to":"31630000000","binary":{"hex":"54
+        65 73 74 20 6d 65 73 73 61 67 65 2e","data_coding":0,"esm_class":0}},{"from":"binary2","to":"31630000000","binary":{"hex":"54
+        65 73 74 20 6d 65 73 73 61 67 65 2e","data_coding":0,"esm_class":0}}]}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, COPY, HEAD, OPTIONS, LINK, UNLINK, PURGE
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type, X-Enrollment-Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '461'
+      Date:
+      - Fri, 11 Mar 2016 17:36:53 GMT
+      Connection:
+      - close
+      Server:
+      - SMS API
+    body:
+      encoding: UTF-8
+      string: '{"bulkId":"1457717814630853757","messages":[{"to":"31630000000","status":{"groupId":1,"groupName":"PENDING","id":7,"name":"PENDING_ENROUTE","description":"Message
+        sent to next instance"},"smsCount":1,"messageId":"4f2f0c44-847c-43ed-a8f6-bbd432eca126"},{"to":"31630000000","status":{"groupId":1,"groupName":"PENDING","id":7,"name":"PENDING_ENROUTE","description":"Message
+        sent to next instance"},"smsCount":1,"messageId":"7d28f3c6-6732-4f5d-b21e-b5e4724060fa"}]}'
+    http_version: 
+  recorded_at: Fri, 11 Mar 2016 17:36:54 GMT
+recorded_with: VCR 3.0.1

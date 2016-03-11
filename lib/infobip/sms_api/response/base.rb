@@ -14,9 +14,8 @@ module Infobip
               attributes['messages'].each do |message|
                 @messages << Infobip::SmsApi::Response::Message.new(message)
               end
-            when 401
-              @request_error = attributes['requestError']
             else
+              @request_error = Infobip::SmsApi::Response::RequestError.new(attributes['requestError'])
           end
         end
 

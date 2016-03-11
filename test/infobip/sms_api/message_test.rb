@@ -2,14 +2,7 @@ require './test/test_helper'
 
 module Infobip
   module SmsApi
-    class MessageTest < Minitest::Test
-
-      def setup
-        Infobip::SmsApi.configure do |configuration|
-          configuration.username = 'test'
-          configuration.password = 'test'
-        end
-      end
+    class MessageTest < SmsApi::TestCase
 
       def test_exists
         assert Infobip::SmsApi::Message

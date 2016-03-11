@@ -1,8 +1,10 @@
 require 'infobip/sms_api/version'
 require 'infobip/sms_api/message'
+require 'infobip/sms_api/messages'
+require 'infobip/sms_api/request'
 require 'infobip/sms_api/response'
 require 'infobip/sms_api/configuration'
-
+require 'infobip/sms_api/errors'
 module Infobip
   module SmsApi
 
@@ -17,6 +19,15 @@ module Infobip
     def self.configure
       yield(configuration)
       configuration.connect
+    end
+
+    def self.deliver(*messages)
+      raise RequiredArgumentMissingError, 'At least 1 message should be sent' if messages.size == 0
+      if messages.size == 1
+        Infobip::SmsApi::Messages.send_single(messages.first)
+      else
+        Infobip::SmsApi::Messages.send_multiple(messages)
+      end
     end
 
   end
