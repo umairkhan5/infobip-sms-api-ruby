@@ -47,17 +47,50 @@ To successfully use this gem you need to have Infobip account, and you need to s
 
 ## Usage
 
-### Send single text message
-```ruby
-message = Infobip::SmsApi::Message.new(from: 'Sender', to: '381650000000', text: "Lorem ipsum...")
-response = message.send_text
+```ruby  
+
+text_message = Infobip::SmsApi::TextMessage.new(
+  from: 'Sender', 
+  to: '31630000000', 
+  text: "Lorem ipsum...")  
+
+another_text_message = Infobip::SmsApi::TextMessage.new(
+  from: 'Sender', 
+  to: ['31630000000', '31630000001'], 
+  text: "Lorem ipsum...")  
+  
+binary_message = Infobip::SmsApi::BinaryMessage.new(
+  from:'binary', 
+  to: '31630000000', 
+  binary: {
+    hex: '54 65 73 74 20 6d 65 73 73 61 67 65 2e',
+    data_coding: 0,
+    esm_class: 0
+  })
+
+another_binary_message = Infobip::SmsApi::BinaryMessage.new(
+  from:'binary2', 
+  to: ['31630000000', '31630000001'], 
+  binary: {
+    hex: '54 65 73 74 20 6d 65 73 73 61 67 65 2e',
+    data_coding: 0,
+    esm_class: 0
+  })
+
+# Send single text sms message
+response = Infobip::SmsApi.deliver(text_message)  
+# Send multiple text sms messages
+response = Infobip::SmsApi.deliver(text_message, another_text_message)  
+
+# Send single binary sms message
+response = Infobip::SmsApi.deliver(binary_message)  
+# Send multiple binary sms messages
+response = Infobip::SmsApi.deliver(binary_message, another_binary_message)  
+
+success = response.successful?
+
 ```
 
-### Send single text message to multiple destinations
-```ruby
-message = Infobip::SmsApi::Message.new(from: 'Sender', to: ['381650000000','381650000001'], text: "Lorem ipsum...")
-response = message.send_text
-```
 
 ## Development
 

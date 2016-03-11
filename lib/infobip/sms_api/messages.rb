@@ -3,9 +3,9 @@ module Infobip
     module Messages
 
       def self.send_single(message)
-        if message.class == Infobip::SmsApi::Request::TextMessage
+        if message.class == Infobip::SmsApi::TextMessage
           return send_single_text_message message
-        elsif message.class == Infobip::SmsApi::Request::BinaryMessage
+        elsif message.class == Infobip::SmsApi::BinaryMessage
           return send_single_binary_message message
         else
           raise UnknownArgumentError, "Unknown message type: #{message.class}"
@@ -13,8 +13,8 @@ module Infobip
       end
 
       def self.send_multiple(messages)
-        return send_multiple_text_messages messages if valid_messages?(messages, Infobip::SmsApi::Request::TextMessage)
-        return send_multiple_binary_messages messages if valid_messages?(messages, Infobip::SmsApi::Request::BinaryMessage)
+        return send_multiple_text_messages messages if valid_messages?(messages, Infobip::SmsApi::TextMessage)
+        return send_multiple_binary_messages messages if valid_messages?(messages, Infobip::SmsApi::BinaryMessage)
         raise MalformedArgumentError, 'When sending multiple messages, all messages need to be of the same type'
       end
 
@@ -25,13 +25,13 @@ module Infobip
       end
 
       def self.send_single_text_message(message)
-        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == Infobip::SmsApi::Request::TextMessage
+        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == Infobip::SmsApi::TextMessage
         response = self.post('/sms/1/text/single', message)
         Response::Base.new(response.status, JSON.parse(response.body))
       end
 
       def self.send_single_binary_message(message)
-        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == Infobip::SmsApi::Request::BinaryMessage
+        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == Infobip::SmsApi::BinaryMessage
         response = self.post('/sms/1/binary/single', message)
         Response::Base.new(response.status, JSON.parse(response.body))
       end

@@ -1,4 +1,4 @@
-require 'infobip/sms_api/request/binary_data'
+require 'infobip/sms_api/model/binary_data'
 module Infobip
   module SmsApi
     class TextMessage < Base

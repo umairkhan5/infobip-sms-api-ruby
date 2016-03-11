@@ -1,4 +1,4 @@
-require 'infobip/sms_api/request/base'
+require 'infobip/sms_api/model/base'
 module Infobip
   module SmsApi
     class BinaryData < Base

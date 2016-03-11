@@ -1,19 +1,19 @@
 require './test/test_helper'
 require 'infobip/sms_api'
-require 'infobip/sms_api/request/text_message'
-require 'infobip/sms_api/request/binary_message'
+require 'infobip/sms_api/model/text_message'
+require 'infobip/sms_api/model/binary_message'
 module Infobip
   class SmsApiTest < SmsApi::TestCase
 
     def before_setup
-      @text_message = Infobip::SmsApi::Request::TextMessage.new(from:'text', to: '31630000000', text: 'text message')
-      @another_text_message = Infobip::SmsApi::Request::TextMessage.new(from:'text2', to: '31630000000', text: 'another text message')
-      @binary_message = Infobip::SmsApi::Request::BinaryMessage.new(from:'binary', to: '31630000000', binary: {
+      @text_message = Infobip::SmsApi::TextMessage.new({from:'text', to: '31630000000', text: 'text message'})
+      @another_text_message = Infobip::SmsApi::TextMessage.new(from:'text2', to: '31630000000', text: 'another text message')
+      @binary_message = Infobip::SmsApi::BinaryMessage.new(from:'binary', to: '31630000000', binary: {
           hex: '54 65 73 74 20 6d 65 73 73 61 67 65 2e',
           data_coding: 0,
           esm_class: 0
       })
-      @another_binary_message = Infobip::SmsApi::Request::BinaryMessage.new(from:'binary2', to: '31630000000', binary: {
+      @another_binary_message = Infobip::SmsApi::BinaryMessage.new(from:'binary2', to: '31630000000', binary: {
           hex: '54 65 73 74 20 6d 65 73 73 61 67 65 2e',
           data_coding: 0,
           esm_class: 0

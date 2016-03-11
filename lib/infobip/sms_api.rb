@@ -1,10 +1,13 @@
 require 'infobip/sms_api/version'
+require 'infobip/sms_api/errors'
 require 'infobip/sms_api/message'
 require 'infobip/sms_api/messages'
-require 'infobip/sms_api/request'
 require 'infobip/sms_api/response'
 require 'infobip/sms_api/configuration'
-require 'infobip/sms_api/errors'
+require 'infobip/sms_api/model/base'
+require 'infobip/sms_api/model/text_message'
+require 'infobip/sms_api/model/binary_message'
+require 'infobip/sms_api/model/binary_data'
 module Infobip
   module SmsApi
 
