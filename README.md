@@ -1,6 +1,7 @@
 # infobip-sms-api-ruby
 
 [![Build Status](https://travis-ci.org/dkocic/infobip-sms-api-ruby.png)](https://travis-ci.org/dkocic/infobip-sms-api-ruby)
+[![Coverage Status](https://coveralls.io/repos/github/dkocic/infobip-sms-api-ruby/badge.svg?branch=master)](https://coveralls.io/github/dkocic/infobip-sms-api-ruby?branch=master)
 
 Simple API wrapper for Infobip SMS Api (https://dev.infobip.com/)
 
