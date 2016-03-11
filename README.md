@@ -1,5 +1,7 @@
 # infobip-sms-api-ruby
 
+[![Build Status](https://travis-ci.org/dkocic/infobip-sms-api-ruby.png)](https://travis-ci.org/dkocic/infobip-sms-api-ruby)
+
 Simple API wrapper for Infobip SMS Api (https://dev.infobip.com/)
 
 Notes: 
