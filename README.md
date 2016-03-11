@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dkocic/infobip-sms-api-ruby.png)](https://travis-ci.org/dkocic/infobip-sms-api-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/dkocic/infobip-sms-api-ruby/badge.svg?branch=master)](https://coveralls.io/github/dkocic/infobip-sms-api-ruby?branch=master)
-[![Code Climate](https://codeclimate.com/repos/56e32546c9fbb700880026d5/badges/eb08f02f8da351909acc/gpa.svg)](https://codeclimate.com/repos/56e32546c9fbb700880026d5/feed)
+[![Code Climate](https://codeclimate.com/github/dkocic/infobip-sms-api-ruby/badges/gpa.svg)](https://codeclimate.com/github/dkocic/infobip-sms-api-ruby)
 
 Simple API wrapper for Infobip SMS Api (https://dev.infobip.com/)
 
