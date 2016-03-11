@@ -1,4 +1,7 @@
 #test/test_helper.rb
+require 'coveralls'
+Coveralls.wear!
+
 require 'infobip/sms_api'
 require 'minitest/unit'
 require 'minitest/autorun'
