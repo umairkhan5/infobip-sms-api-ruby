@@ -25,24 +25,29 @@ module Infobip
       end
 
       def self.send_single_text_message(message)
-        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == Infobip::SmsApi::TextMessage
-        response = self.post('/sms/1/text/single', message)
-        Response::Base.new(response.status, JSON.parse(response.body))
+        post_single(Infobip::SmsApi::TextMessage, '/sms/1/text/single', message)
       end
 
       def self.send_single_binary_message(message)
-        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == Infobip::SmsApi::BinaryMessage
-        response = self.post('/sms/1/binary/single', message)
-        Response::Base.new(response.status, JSON.parse(response.body))
+        post_single(Infobip::SmsApi::BinaryMessage, '/sms/1/binary/single', message)
       end
 
       def self.send_multiple_text_messages(messages)
-        response = self.post('/sms/1/text/multi', { messages: messages.map(&:to_hash) })
-        Response::Base.new(response.status, JSON.parse(response.body))
+        post_multi('/sms/1/text/multi', messages)
       end
 
       def self.send_multiple_binary_messages(messages)
-        response = self.post('/sms/1/binary/multi', { messages: messages.map(&:to_hash) })
+        post_multi('/sms/1/binary/multi', messages)
+      end
+
+      def self.post_single(class_name, endpoint, message)
+        raise UnknownArgumentError, "Unsupported Message Type: #{message.class}" unless message.class == class_name
+        response = self.post(endpoint, message)
+        Response::Base.new(response.status, JSON.parse(response.body))
+      end
+
+      def self.post_multi(endpoint, messages)
+        response = self.post(endpoint, { messages: messages.map(&:to_hash) })
         Response::Base.new(response.status, JSON.parse(response.body))
       end
 
